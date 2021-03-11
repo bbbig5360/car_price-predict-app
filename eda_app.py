@@ -26,6 +26,11 @@ def run_eda_app():
     radio_menu = ['데이터 프레임', '통계치']
     selected_radio = st.radio('선택하세요', radio_menu)
 
+    data_col = car_df.columns
+    sel_col = st.multiselect('보고싶은 내용들을 고르시오', data_col)
+    st.dataframe(car_df[sel_col])
+    st.dataframe(car_df[sel_col].corr())
+
     if selected_radio == '데이터 프레임':
         st.dataframe(car_df)
 
