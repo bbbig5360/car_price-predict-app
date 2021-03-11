@@ -28,8 +28,13 @@ def run_eda_app():
 
     data_col = car_df.columns
     sel_col = st.multiselect('보고싶은 내용들을 고르시오', data_col)
-    st.dataframe(car_df[sel_col])
-    st.dataframe(car_df[sel_col].corr())
+    
+    if sel_col :
+        st.dataframe(car_df[sel_col])
+        st.dataframe(car_df[sel_col].corr())
+    else :
+        st.write('선택한 컬럼이 없습니다.')
+    
 
     if selected_radio == '데이터 프레임':
         st.dataframe(car_df)
