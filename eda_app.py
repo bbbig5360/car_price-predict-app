@@ -78,14 +78,13 @@ def run_eda_app():
 
     input_text = st.text_input('찾으시려는 이름을 입력하시오')
     
-    # result = car_df.loc[ car_df['Customer Name'].str.contains(input_text, case=False), ]
-    
-    # st.dataframe(result)
+    result = car_df.loc[ car_df['Customer Name'].str.contains(input_text, case=False), ]
+    st.dataframe(result)
 
-    if input_text:
-        for name in car_df['Customer Name'].values:
-            if input_text.lower() in name.lower() :
-                st.write(name)
-                st.write(type(name))
-                st.write(name in car_df['Customer Name'] )
-                st.write(car_df[name])
+    # if input_text:
+    #     for name in car_df['Customer Name'].values:
+    #         if input_text.lower() in name.lower() :
+    #             st.write(name)
+    #             st.write(type(name))
+    #             st.write(name in car_df['Customer Name'] )
+    #             st.write(car_df[name])
